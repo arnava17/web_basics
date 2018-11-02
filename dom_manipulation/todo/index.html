@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Window resize example</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      div {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>My Shopping List</h1>
+      <div>
+        <label>Enter new item : </label>
+        <input type="text"></input>
+        <button>Add Item</button>
+        <ul></ul>
+      </div>
+    </div>
+    <script>
+      var ul = document.querySelector('ul');
+
+      var addItemButton = document.querySelector('button');
+
+      var addItem = function(itemName) {
+        if(!itemName) {
+          return;
+        }
+        var li = document.createElement('li');
+
+        var deleteButton = document.createElement('button');
+        var deleteText = document.createTextNode('Delete');
+        deleteButton.appendChild(deleteText);
+
+        var text = document.createTextNode(itemName);
+
+        li.appendChild(text);
+        li.appendChild(deleteButton);
+
+        ul.appendChild(li);
+      }
+
+      ul.addEventListener('click', function(e) {
+        if(e.target.tagName === 'BUTTON') {
+          var li = e.target.closest('li');
+          ul.removeChild(li);
+        }
+      })
+
+      addItemButton.addEventListener('click', function(e) {
+        var input = document.querySelector('input');
+        addItem(input.value);
+      })
+    </script>
+  </body>
+</html>

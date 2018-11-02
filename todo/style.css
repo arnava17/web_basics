@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+li span:hover {
+  border: 1px solid blue;
+}
+li.completed span {
+  text-decoration: line-through;
+}

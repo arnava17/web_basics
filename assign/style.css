@@ -1,0 +1,7 @@
+ * {
+   box-sizing: border-box;
+ }
+
+ li.completed {
+   text-decoration: line-through;
+ }
